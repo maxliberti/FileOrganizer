@@ -34,13 +34,15 @@ def organize_downloads(path):
             new_destination = os.path.join(os.path.expanduser('~'), "OneDrive\\Documents\\YouTube")
             shutil.move(src, new_destination)
         # sorting drum kit downloads
-        if "kit" in filename and ".zip" in filename:
-            new_destination = "C:\\Program Files\\Image-Line\\FL Studio 2024\\Data\\Patches\\Packs"
-            new_path = os.path.join(new_destination, filename)
-            shutil.move(src, new_destination)
-            with zipfile.ZipFile(new_path, "r") as zip_ref:
-                zip_ref.extractall(new_destination)
-            os.remove(new_path)
+       # if "kit" in filename and ".zip" in filename:
+       #     new_destination = "C:\\Program Files\\Image-Line\\FL Studio 2024\\Data\\Patches\\Packs"
+       #     new_path = os.path.join(new_destination, filename)
+       #     shutil.move(src, new_destination)
+       #     with zipfile.ZipFile(new_path, "r") as zip_ref:
+      #          zip_ref.extractall(new_destination)
+      #      os.remove(new_path)
+        if ".zip" in filename or "setup" in filename.lower() or "installer" in filename.lower():
+            os.remove(src)
 
 def print_files_in_folder(ext, path):
   for root, dirs, files in os.walk(path):
